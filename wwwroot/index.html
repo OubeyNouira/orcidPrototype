@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Connection</title>
+</head>
+<body>
+    <h1>Firebase Connected to ASP.NET Core Web API</h1>
+
+    <script type="module">
+        // Import the functions you need from the SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA253kcSrGniCVS4qE405DO_oD8v9CJm6E",
+            authDomain: "orcid-71033.firebaseapp.com",
+            projectId: "orcid-71033",
+            storageBucket: "orcid-71033.appspot.com",
+            messagingSenderId: "903528975257",
+            appId: "1:903528975257:web:56f1ae2e19451158d36108",
+            measurementId: "G-FK3LRDPNZ8"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        console.log("Firebase Initialized!");
+
+        // Initialize Firestore
+        const db = getFirestore(app);
+
+        // Example: Fetch all documents from a Firestore collection
+        async function getData() {
+            const querySnapshot = await getDocs(collection(db, "your-collection-name"));
+            querySnapshot.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+            });
+        }
+
+        getData();
+    </script>
+</body>
+</html>
