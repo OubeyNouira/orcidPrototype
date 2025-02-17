@@ -32,3 +32,4 @@ Thumbs.db
 .env.local
 .env.development
 .env.production
+"firebase-config.json" 
